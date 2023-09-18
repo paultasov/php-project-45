@@ -1,0 +1,11 @@
+{
+    "name": "hexlet/code",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "paultasov",
+            "email": "paultasov@gmail.com"
+        }
+    ],
+    "require": {}
+}
