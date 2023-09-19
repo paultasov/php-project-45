@@ -7,5 +7,13 @@
             "email": "paultasov@gmail.com"
         }
     ],
+    "description": "Brain games",
+    "keywords": [
+        "hexlet",
+        "brain-games"
+    ],
+    "bin": [
+        "bin/brain-games"
+    ],
     "require": {}
 }
