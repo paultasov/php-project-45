@@ -1,5 +1,7 @@
-#!/usr/bin/php8.2
+#!/usr/bin/env php
 <?php
+
+require_once(__DIR__ . '/../src/Cli.php');
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -11,5 +13,4 @@ if (file_exists($autoloadPath1)) {
 }
 
 use function Brain\Games\Cli\sayHello;
-
 sayHello();
