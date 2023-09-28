@@ -13,13 +13,13 @@ function guessEvenOrOdd()
 
     $counter = 0;
 
-    while($counter < 3) {
+    while ($counter < 3) {
         $randomNum = mt_rand(0, 10);
 
         line("Question: {$randomNum}");
         $userAnswer = prompt('Your answer');
 
-        if (($randomNum % 2 === 0 && $userAnswer === 'yes') || ($randomNum % 2 !== 0 && $userAnswer === 'no')) {
+        if ($randomNum % 2 === 0 && $userAnswer === 'yes' || $randomNum % 2 !== 0 && $userAnswer === 'no') {
             line('Correct!');
             $counter += 1;
         } else {
