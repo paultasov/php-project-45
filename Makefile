@@ -6,6 +6,10 @@ install:
 brain-games:
 	./bin/brain-games
 
+# Start Brain-even game
+brain-even:
+	./bin/brain-even
+
 # Validate composer.json
 validate:
 	composer validate
