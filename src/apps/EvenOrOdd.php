@@ -3,32 +3,37 @@
 namespace Brain\Games\Apps\EvenOrOdd;
 
 use function cli\line;
-use function cli\prompt;
 use function Brain\Games\Cli\sayHello;
+use function Brain\Games\Engine\getRandomNumber;
+use function Brain\Games\Engine\getUserAnswer;
+use function Brain\Games\Engine\showMessages;
 
-function guessEvenOrOdd()
+function guessEvenOrOdd(): bool
 {
     $userName = sayHello();
-    line('Answer "yes" if the number is even, otherwise answer "no".');
+    $gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
+    line($gameRule);
 
     $counter = 0;
-
     while ($counter < 3) {
-        $randomNum = mt_rand(0, 10);
+        $randNum = getRandomNumber();
+        line("Question: $randNum");
+        $userAnswer = getUserAnswer();
 
-        line("Question: {$randomNum}");
-        $userAnswer = prompt('Your answer');
+        $validAnswer = ($randNum % 2 === 0) ? 'yes' : 'no';
 
-        if ($randomNum % 2 === 0 && $userAnswer === 'yes' || $randomNum % 2 !== 0 && $userAnswer === 'no') {
-            line('Correct!');
+        $result = showMessages($userAnswer, $validAnswer, $userName);
+
+        if ($result) {
             $counter += 1;
         } else {
-            line("'{$userAnswer}' is wrong answer ;(. Correct answer was 'no'.");
-            line("Let's try again, {$userName}!");
             return false;
         }
     }
 
-    line("Congratulations, {$userName}!");
-    return true;
+    if ($counter === 3) {
+        line("Congratulations, $userName!");
+    }
+
+    return false;
 }
