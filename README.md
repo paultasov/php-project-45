@@ -10,8 +10,7 @@
 ***
 [![asciicast](https://asciinema.org/a/zV5kZfCiDle97T0Lzc0jIfmrR.svg)](https://asciinema.org/a/zV5kZfCiDle97T0Lzc0jIfmrR)
 
-## Game overviews:
-#### 1. Brain even game — `brain-calc`
+#### 2. Brain even game — `brain-calc`
 ##### _What is the result of the expression?_
 ***
 [![asciicast](https://asciinema.org/a/jdtTdGSnSbdoW8LF2OftrTnc5.svg)](https://asciinema.org/a/jdtTdGSnSbdoW8LF2OftrTnc5)
