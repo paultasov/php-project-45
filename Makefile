@@ -6,18 +6,22 @@ install:
 validate:
 	composer validate
 
-# Linter validation // Code Sniffer
+# Linter validation: Code Sniffer
 lint:
 	composer exec --verbose phpcs -- --standard=PSR12 src bin
 
-# Start Brain-games
+# Start Brain-Games
 brain-games:
 	./bin/brain-games
 
-# Start Brain-even game
+# Start Brain-Even Game
 brain-even:
 	./bin/brain-even
 
-# Start Brain-calc game
+# Start Brain-Calc Game
 brain-calc:
 	./bin/brain-calc
+
+# Start Brain-Gcd Game
+brain-gcd:
+	./bin/brain-gcd
