@@ -25,3 +25,7 @@ brain-calc:
 # Start Brain-Gcd Game
 brain-gcd:
 	./bin/brain-gcd
+
+# Start Brain-Progression Game
+brain-progression:
+	./bin/brain-progression

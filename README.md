@@ -19,3 +19,8 @@
 ##### _The game rule: Find the greatest common divisor of given numbers._
 ***
 [![asciicast](https://asciinema.org/a/r8XJyDFrpvmzzJrLnQ0fnaAlM.svg)](https://asciinema.org/a/r8XJyDFrpvmzzJrLnQ0fnaAlM)
+
+#### 4. <span style="color: #21a19a">Brain-Progression Game</span> — `brain-progression`
+##### _The game rule: What number is missing in the progression?_
+***
+[![asciicast](https://asciinema.org/a/VC7Y5wVLaLclazEfIi0HX1TJo.svg)](https://asciinema.org/a/VC7Y5wVLaLclazEfIi0HX1TJo)

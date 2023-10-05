@@ -10,11 +10,11 @@ use function Brain\Games\Engine\showMessages;
 
 function findGcd(int $firstRandNum, int $secondRandNum): int
 {
-    $temp = $firstRandNum;
-    while ($firstRandNum % $temp !== 0 || $secondRandNum % $temp !== 0) {
-        $temp -= 1;
+    $gcdCounter = $firstRandNum;
+    while ($firstRandNum % $gcdCounter !== 0 || $secondRandNum % $gcdCounter !== 0) {
+        $gcdCounter -= 1;
     }
-    return $temp;
+    return $gcdCounter;
 }
 
 function getGcd(): bool

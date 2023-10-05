@@ -7,7 +7,7 @@ use function cli\prompt;
 
 function getRandomNumber(): int
 {
-    return mt_rand(1, 20);
+    return mt_rand(1, 50);
 }
 
 function getUserAnswer(): string
