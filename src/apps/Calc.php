@@ -2,57 +2,52 @@
 
 namespace Brain\Games\Apps\Calc;
 
-use function cli\line;
-use function Brain\Games\Cli\sayHello;
+use function Brain\Games\Engine\sayHello;
 use function Brain\Games\Engine\getRandomNumber;
+use function Brain\Games\Engine\askTheQuestion;
 use function Brain\Games\Engine\getUserAnswer;
 use function Brain\Games\Engine\showMessages;
 
-function calculate(): bool
+function doMathOperation(string $randOperator, int $firstRandNum, int $secondRandNum): int
 {
-    $userName = sayHello();
-    $gameRule = 'What is the result of the expression?';
-    line($gameRule);
+    $correctVal = 0;
+    switch ($randOperator) {
+        case '+':
+            $correctVal += $firstRandNum + $secondRandNum;
+            break;
+        case '-':
+            $correctVal += $firstRandNum - $secondRandNum;
+            break;
+        case '*':
+            $correctVal += $firstRandNum * $secondRandNum;
+            break;
+    }
+    return $correctVal;
+}
+
+function calculate(int $minVal, int $maxVal, int $gameAttempts): void
+{
+    $userName = sayHello('What is the result of the expression?');
 
     $operators = ['+', '-', '*'];
 
-    $counter = 0;
-    while ($counter < 3) {
-        $firstRandNum = getRandomNumber();
-        $secondRandNum = getRandomNumber();
+    $counter = 1;
+    while ($counter <= $gameAttempts) {
+        $firstRandNum = getRandomNumber($minVal, $maxVal);
+        $secondRandNum = getRandomNumber($minVal, $maxVal);
+        $randOperator = $operators[getRandomNumber(0, 2)];
 
-        $randOperator = $operators[mt_rand(0, 2)];
+        askTheQuestion("$firstRandNum $randOperator $secondRandNum");
 
-        line("Question: $firstRandNum $randOperator $secondRandNum");
-
+        $validAnswer = doMathOperation($randOperator, $firstRandNum, $secondRandNum);
         $userAnswer = (int) getUserAnswer();
 
-        $validAnswer = 0;
-
-        switch ($randOperator) {
-            case '+':
-                $validAnswer += $firstRandNum + $secondRandNum;
-                break;
-            case '-':
-                $validAnswer += $firstRandNum - $secondRandNum;
-                break;
-            case '*':
-                $validAnswer += $firstRandNum * $secondRandNum;
-                break;
-        }
-
-        $result = showMessages($userAnswer, $validAnswer, $userName);
-
-        if ($result) {
-            $counter += 1;
-        } else {
-            return false;
-        }
+        $counter += showMessages(
+            $userAnswer,
+            $validAnswer,
+            $counter,
+            $gameAttempts,
+            $userName
+        );
     }
-
-    if ($counter === 3) {
-        line("Congratulations, $userName!");
-    }
-
-    return false;
 }

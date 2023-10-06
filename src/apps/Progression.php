@@ -2,15 +2,16 @@
 
 namespace Brain\Games\Apps\Progression;
 
-use function cli\line;
-use function Brain\Games\Cli\sayHello;
+use function Brain\Games\Engine\sayHello;
+use function Brain\Games\Engine\getRandomNumber;
+use function Brain\Games\Engine\askTheQuestion;
 use function Brain\Games\Engine\getUserAnswer;
 use function Brain\Games\Engine\showMessages;
 
 function makeProgression(): int
 {
-    $progressionLen = mt_rand(25, 60);
-    $progressionStep = mt_rand(3, 5);
+    $progressionLen = getRandomNumber(25, 60);
+    $progressionStep = getRandomNumber(3, 5);
 
     $progressionNums = [];
     $stepCounter = 0;
@@ -20,39 +21,31 @@ function makeProgression(): int
         $progressionNums[] = $stepCounter;
     }
 
-    $dotsPosition = mt_rand(0, count($progressionNums) - 1);
+    $dotsPosition = getRandomNumber(0, count($progressionNums) - 1);
     $hiddenArrNum = $progressionNums[$dotsPosition];
     $progressionNums[$dotsPosition] = '...';
 
     $str = implode(' ', $progressionNums);
-    line("Question: $str");
+    askTheQuestion($str);
 
     return $hiddenArrNum;
 }
 
-function showProgression(): bool
+function showProgression(int $gameAttempts): void
 {
-    $userName = sayHello();
-    $gameRule = 'What number is missing in the progression?';
-    line($gameRule);
+    $userName = sayHello('What number is missing in the progression?');
 
-    $counter = 0;
-    while ($counter < 3) {
+    $counter = 1;
+    while ($counter <= $gameAttempts) {
         $validAnswer = makeProgression();
         $userAnswer = (int) getUserAnswer();
 
-        $result = showMessages($userAnswer, $validAnswer, $userName);
-
-        if ($result) {
-            $counter += 1;
-        } else {
-            return false;
-        }
+        $counter += showMessages(
+            $userAnswer,
+            $validAnswer,
+            $counter,
+            $gameAttempts,
+            $userName
+        );
     }
-
-    if ($counter === 3) {
-        line("Congratulations, $userName!");
-    }
-
-    return false;
 }

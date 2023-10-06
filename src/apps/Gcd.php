@@ -2,9 +2,9 @@
 
 namespace Brain\Games\Apps\Gcd;
 
-use function cli\line;
-use function Brain\Games\Cli\sayHello;
+use function Brain\Games\Engine\sayHello;
 use function Brain\Games\Engine\getRandomNumber;
+use function Brain\Games\Engine\askTheQuestion;
 use function Brain\Games\Engine\getUserAnswer;
 use function Brain\Games\Engine\showMessages;
 
@@ -17,33 +17,26 @@ function findGcd(int $firstRandNum, int $secondRandNum): int
     return $gcdCounter;
 }
 
-function getGcd(): bool
+function getGcd(int $minVal, int $maxVal, int $gameAttempts): void
 {
-    $userName = sayHello();
-    $gameRule = 'Find the greatest common divisor of given numbers.';
-    line($gameRule);
+    $userName = sayHello('Find the greatest common divisor of given numbers.');
 
-    $counter = 0;
-    while ($counter < 3) {
-        $firstRandNum = getRandomNumber();
-        $secondRandNum = getRandomNumber();
+    $counter = 1;
+    while ($counter <= $gameAttempts) {
+        $firstRandNum = getRandomNumber($minVal, $maxVal);
+        $secondRandNum = getRandomNumber($minVal, $maxVal);
+
+        askTheQuestion("$firstRandNum $secondRandNum");
 
         $validAnswer = findGcd($firstRandNum, $secondRandNum);
-        line("Question: $firstRandNum $secondRandNum");
         $userAnswer = (int) getUserAnswer();
 
-        $result = showMessages($userAnswer, $validAnswer, $userName);
-
-        if ($result) {
-            $counter += 1;
-        } else {
-            return false;
-        }
+        $counter += showMessages(
+            $userAnswer,
+            $validAnswer,
+            $counter,
+            $gameAttempts,
+            $userName
+        );
     }
-
-    if ($counter === 3) {
-        line("Congratulations, $userName!");
-    }
-
-    return false;
 }

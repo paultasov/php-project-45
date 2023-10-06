@@ -12,4 +12,4 @@ if (file_exists($autoloadPath1)) {
 
 use function Brain\Games\Apps\Progression\showProgression;
 
-showProgression();
+showProgression(3);
