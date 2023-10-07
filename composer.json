@@ -17,7 +17,8 @@
         "bin/brain-even",
         "bin/brain-calc",
         "bin/brain-gcd",
-        "bin/brain-progression"
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
     "autoload": {
         "files": [
@@ -26,6 +27,7 @@
             "src/apps/Calc.php",
             "src/apps/Gcd.php",
             "src/apps/Progression.php",
+            "src/apps/PrimeNumber.php",
             "src/Engine.php"
         ]
     },

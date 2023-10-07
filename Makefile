@@ -29,3 +29,7 @@ brain-gcd:
 # Start Brain-Progression Game
 brain-progression:
 	./bin/brain-progression
+
+# Start Brain-Prime Game
+brain-prime:
+	./bin/brain-prime
