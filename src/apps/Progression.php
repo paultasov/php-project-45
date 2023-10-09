@@ -39,10 +39,10 @@ function showProgression(int $gameAttempts): void
     while ($counter <= $gameAttempts) {
         $validAnswer = makeProgression();
         $userAnswer = (int) getUserAnswer();
+        $answers = [$validAnswer, $userAnswer];
 
         $counter += showMessages(
-            $userAnswer,
-            $validAnswer,
+            $answers,
             $counter,
             $gameAttempts,
             $userName

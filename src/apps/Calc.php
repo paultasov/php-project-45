@@ -40,11 +40,12 @@ function calculate(int $minVal, int $maxVal, int $gameAttempts): void
         askTheQuestion("$firstRandNum $randOperator $secondRandNum");
 
         $validAnswer = doMathOperation($randOperator, $firstRandNum, $secondRandNum);
+        print_r("Hint: '$validAnswer'\n");
         $userAnswer = (int) getUserAnswer();
+        $answers = [$validAnswer, $userAnswer];
 
         $counter += showMessages(
-            $userAnswer,
-            $validAnswer,
+            $answers,
             $counter,
             $gameAttempts,
             $userName

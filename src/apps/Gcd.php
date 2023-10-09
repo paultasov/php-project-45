@@ -30,10 +30,10 @@ function getGcd(int $minVal, int $maxVal, int $gameAttempts): void
 
         $validAnswer = findGcd($firstRandNum, $secondRandNum);
         $userAnswer = (int) getUserAnswer();
+        $answers = [$validAnswer, $userAnswer];
 
         $counter += showMessages(
-            $userAnswer,
-            $validAnswer,
+            $answers,
             $counter,
             $gameAttempts,
             $userName

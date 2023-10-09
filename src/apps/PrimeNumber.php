@@ -26,14 +26,14 @@ function isPrime(int $minVal, int $maxVal, int $gameAttempts): void
     while ($counter <= $gameAttempts) {
         $randNum = getRandomNumber($minVal, $maxVal);
 
-        askTheQuestion((string)$randNum);
+        askTheQuestion((string) $randNum);
 
         $validAnswer = checkIfPrime($randNum);
         $userAnswer = getUserAnswer();
+        $answers = [$validAnswer, $userAnswer];
 
         $counter += showMessages(
-            $userAnswer,
-            $validAnswer,
+            $answers,
             $counter,
             $gameAttempts,
             $userName

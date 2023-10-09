@@ -31,22 +31,21 @@ function getUserAnswer(): string
 }
 
 function showMessages(
-    string|int $userAnswer,
-    string|int $validAnswer,
+    array $answers,
     int $counter,
     int $gameAttempts,
     string $userName
 ): int {
     switch (true) {
-        case $counter === $gameAttempts && $userAnswer === $validAnswer:
+        case $counter === $gameAttempts && $answers[0] === $answers[1]:
             line("Congratulations, %s!", $userName);
             return $counter;
-        case $userAnswer === $validAnswer:
+        case $answers[0] === $answers[1]:
             line('Correct!');
             return true;
     }
 
-    line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $validAnswer);
+    line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answers[1], $answers[0]);
     line("Let's try again, %s!", $userName);
     return $counter + $gameAttempts;
 }
