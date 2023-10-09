@@ -26,6 +26,6 @@
 [![asciicast](https://asciinema.org/a/1ZDOAkhZgCF3uQ0eZKBqfLTGN.svg)](https://asciinema.org/a/1ZDOAkhZgCF3uQ0eZKBqfLTGN)
 
 #### 5. <span style="color: #21a19a">Brain-Prime Game</span> — `brain-prime`
-##### _Answer "yes" if given number is prime. Otherwise, answer "no"._
+##### _Answer "yes" if given number is prime. Otherwise answer "no"._
 ***
 [![asciicast](https://asciinema.org/a/RPYHiyXLwMGF22cfSOEjuctQT.svg)](https://asciinema.org/a/RPYHiyXLwMGF22cfSOEjuctQT)

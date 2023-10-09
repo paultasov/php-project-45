@@ -20,7 +20,7 @@ function checkIfPrime(int $randNum): string
 
 function isPrime(int $minVal, int $maxVal, int $gameAttempts): void
 {
-    $userName = sayHello('Answer "yes" if given number is prime. Otherwise, answer "no".');
+    $userName = sayHello('Answer "yes" if given number is prime. Otherwise answer "no".');
 
     $counter = 1;
     while ($counter <= $gameAttempts) {
