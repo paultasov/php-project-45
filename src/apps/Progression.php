@@ -23,7 +23,7 @@ function makeProgression(): int
 
     $dotsPosition = getRandomNumber(0, count($progressionNums) - 1);
     $hiddenArrNum = $progressionNums[$dotsPosition];
-    $progressionNums[$dotsPosition] = '...';
+    $progressionNums[$dotsPosition] = '..';
 
     $str = implode(' ', $progressionNums);
     askTheQuestion($str);
