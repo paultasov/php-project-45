@@ -1,9 +1,9 @@
 <?php
 
-namespace Brain\Games\Cli;
+namespace BrainGames\Cli;
 
-use function cli\line;
-use function cli\prompt;
+use function Cli\line;
+use function Cli\prompt;
 
 function sayHello(): void
 {

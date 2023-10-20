@@ -10,6 +10,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function Brain\Games\Apps\Progression\showProgression;
+use function BrainGames\Apps\Progression\showProgression;
 
-showProgression(3);
+showProgression(25, 60);

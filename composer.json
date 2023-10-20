@@ -7,10 +7,15 @@
             "email": "paultasov@gmail.com"
         }
     ],
-    "description": "Brain games",
+    "description": "Brain Games",
     "keywords": [
         "hexlet",
-        "brain-games"
+        "brain-games",
+        "brain-even",
+        "brain-calc",
+        "brain-gcd",
+        "brain-progression",
+        "brain-prime"
     ],
     "bin": [
         "bin/brain-games",
@@ -23,11 +28,11 @@
     "autoload": {
         "files": [
             "src/Cli.php",
-            "src/apps/EvenOrOdd.php",
-            "src/apps/Calc.php",
-            "src/apps/Gcd.php",
-            "src/apps/Progression.php",
-            "src/apps/PrimeNumber.php",
+            "src/Apps/EvenOrOdd.php",
+            "src/Apps/Calc.php",
+            "src/Apps/Gcd.php",
+            "src/Apps/Progression.php",
+            "src/Apps/PrimeNumber.php",
             "src/Engine.php"
         ]
     },

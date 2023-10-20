@@ -10,6 +10,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function Brain\Games\Apps\Calc\calculate;
+use function BrainGames\Apps\Calc\calculate;
 
-calculate(1, 200, 3);
+calculate(1, 200);
