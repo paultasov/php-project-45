@@ -2,8 +2,8 @@
 
 namespace BrainGames\Engine;
 
-use function Cli\line;
-use function Cli\prompt;
+use function cli\line;
+use function cli\prompt;
 use function BrainGames\Apps\Calc\doMathOperation;
 use function BrainGames\Apps\Gcd\findGcd;
 use function BrainGames\Apps\EvenOrOdd\compareYesOrNo;
@@ -57,7 +57,7 @@ function showMessages(
     return $counter + $gameAttempts;
 }
 
-function compareAnswers(...$args): void
+function compareAnswers(mixed ...$args): void
 {
     [$range, $gameTag, $userName] = $args;
     [$minVal, $maxVal] = $range;
